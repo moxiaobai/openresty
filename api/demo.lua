@@ -4,20 +4,20 @@
 -- Date: 2017/1/24  16:11
 --
 
-local res = ngx.location.capture("/api/mysql")
+local res = ngx.location.capture("/api/mysql.json")
 if res then
-    --ngx.say("status: ", res.status)
-    --ngx.say("body:")
-    --ngx.print(res.body)
+    ngx.say("status: ", res.status)
+    ngx.say("body:")
+    ngx.print(res.body)
 end
 
 
 
-local logger = require( "resty.logger")
-local log = logger:new('debug', '/tmp/logfile.log' )
-
-log:info('I am info')
-log:debug( 'I am debug' )
-log:error( "I am error" )
-
-ngx.say("Hello")
+--local logger = require( "resty.logger")
+--local log = logger:new('debug', '/tmp/logfile.log' )
+--
+--log:info('I am info')
+--log:debug( 'I am debug' )
+--log:error( "I am error" )
+--
+--ngx.say("Hello")

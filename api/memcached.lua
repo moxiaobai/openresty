@@ -8,17 +8,23 @@ local cjson      = require("cjson")
 local memcached  = require("libaray.memcached")
 local instance   = memcached:new("task")
 
-local userInfo = {name='moxiaobai', age=25}
-ok, err = instance:set("user", cjson.encode(userInfo))
-if not ok then
-    ngx.say("failed to set dog: ", err)
-    return
+local result
+local res, err = instance:get("user")
+if not res then
+    local userInfo = {name='moxiaobai', age=25}
+    result, err = instance:set("user", cjson.encode(userInfo))
+    if not result then
+        ngx.say("failed to set ", err)
+        return
+    end
+
+    res = userInfo
 end
 
-local res, err = instance:get("user")
+--local user = cjson.decode(res)
+--ngx.say(user.name)
 
-local user = cjson.decode(res)
-ngx.say(user.name)
+ngx.say(res)
 
 
 instance:close()
