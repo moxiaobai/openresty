@@ -4,5 +4,5 @@
 -- Date: 2017/2/22  11:03
 --
 
-print(type(true))
+ngx.say('Hello');
 
