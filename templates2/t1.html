@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <title>{{title}}</title>
+</head>
+<body>
+<div class="container">
+    {(header.html)}
+
+    <div class="rows">
+        <div class="col-xs-12">
+            <ul class="list-group">
+                {# 不转义变量输出 #}
+              <li class="list-group-item">姓名：{* string.upper(name) *}</li>
+              <li class="list-group-item"> 简介：{{description}}</li>
+              <li class="list-group-item"> 年龄: {* age + 1 *}<br/></li>
+              <li class="list-group-item">
+                   爱好：
+                  {% for i, v in ipairs(hobby) do %}
+                     {% if i > 1 then %}，{% end %}
+                     {* v *}
+                  {% end %}
+              </li>
+              <li class="list-group-item">
+                  {% for i = 1, #score2 do local t = score2[i] %}
+                     {% if i > 1 then %}，{% end %}
+                      {* t.name *} = {* t.score *}
+                  {% end %}
+              </li>
+            </ul>
+        </div>
+    </div>
+
+    {(footer.html)}
+</div>
+</body>
+</html>
