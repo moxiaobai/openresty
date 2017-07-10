@@ -6,8 +6,8 @@
 -- To change this template use File | Settings | File Templates.
 --
 
-local redis = require 'resty.redis'
-local cjson = require 'cjson'
+--local redis = require 'resty.redis'
+--local cjson = require 'cjson'
 
 ----全局变量，不推荐
 --count = 1
@@ -16,3 +16,8 @@ local cjson = require 'cjson'
 --local shared_data = ngx.shared.shared_data
 --shared_data:set("count", 1)
 
+--ngx.say(ngx.var.remote_addr)
+
+--if ngx.var.remote_addr == "220.249.170.253" then
+--    ngx.exit(ngx.HTTP_FORBIDDEN)
+--end

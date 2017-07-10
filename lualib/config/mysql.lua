@@ -7,10 +7,10 @@
 local config  = {}
 
 -- 任务系统
-config["task_www"] = {
+config["task"] = {
     host     = "127.0.0.1",
     port     = 3306,
-    database = 'task_www',
+    database = 'oa_www',
     user     = 'root',
     password = "123456",
     max_packet_size = 1024 * 1024

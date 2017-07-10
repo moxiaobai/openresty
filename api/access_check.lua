@@ -5,20 +5,20 @@
 --
 
 -- IP限制
-local blackIps = {["192.168.1.190"]=true, ["192.168.1.31"]=true }
+local whiteIps = {["192.168.6.21"]=true, ["192.168.1.31"]=true }
 local ip = ngx.var.remote_addr
 
-if true ~= blackIps[ip] then
+if true ~= whiteIps[ip] then
     ngx.exit(ngx.HTTP_FORBIDDEN)
 end
 
 -- 检查参数
-ngx.req.read_body()
-local args, err = ngx.req.get_post_args()
-if not args then
-    ngx.say("failed to get post args: ", err)
-    return
-end
+--ngx.req.read_body()
+--local args, err = ngx.req.get_post_args()
+--if not args then
+--    ngx.say("failed to get post args: ", err)
+--    return
+--end
 
 --local req = require "req"
 --local args = req.getArgs()
@@ -26,12 +26,12 @@ end
 --ngx.say(table.getn(args))
 --table.sort(args);
 
-local authKey = 'Comylife*^@#%^'
-for key, val in pairs(args) do
-    if key ~= "sign" then
-        authKey = authKey .. val
-    end
-end
+--local authKey = 'Comylife*^@#%^'
+--for key, val in pairs(args) do
+--    if key ~= "sign" then
+--        authKey = authKey .. val
+--    end
+--end
 
 --ngx.say(authKey)
 

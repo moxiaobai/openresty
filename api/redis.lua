@@ -8,19 +8,18 @@ local cjson           = require("cjson")
 local redis           = require("libaray.redis")
 local redisInstance   = redis:new("task")
 
-local ok
 local res, err = redisInstance:get("user")
-if not res then
-    local userInfo = {name='moxiaobai', age=25}
-    ok, err = redisInstance:set("user", cjson.encode(userInfo))
-    if not ok then
-        ngx.say("failed to set dog: ", err)
-        return
-    end
-
-    res = userInfo
+if res == ngx.null then
+    res = "moxiaobai"
+    ok, err = redisInstance:set("user", res)
 end
 
-local user = cjson.decode(res)
-ngx.say(user.name)
+--local user = cjson.decode(res)
+--ngx.say(user.name)
+
+
+
+ngx.say(res)
+
+redisInstance:close()
 

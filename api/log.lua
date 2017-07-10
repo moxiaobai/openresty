@@ -4,3 +4,29 @@
 -- Date: 2017/1/24  11:53
 --
 
+--local logger = require "resty.logger.socket"
+--if not logger.initted() then
+--    local ok, err = logger.init{
+--        host = '127.0.0.1',
+--        port = 1234,
+--        flush_limit = 1,
+--        drop_limit = 99999,
+--    }
+--    if not ok then
+--        ngx.log(ngx.ERR, "failed to initialize the logger: ", err)
+--        return
+--    end
+--end
+--
+---- construct the custom access log message in
+---- the Lua variable "msg"
+--
+--local msg = "hello"
+--local bytes, err = logger.log(msg)
+--if err then
+--    ngx.log(ngx.ERR, "failed to log message: ", err)
+--    return
+--end
+--
+
+--ngx.log(ngx.ERR, "YaYa")
